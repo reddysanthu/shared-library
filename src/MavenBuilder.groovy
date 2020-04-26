@@ -1,5 +1,5 @@
 class MavenBuilder{
-  def String mavenBuild(){
-       return ("SUCCESS")
+  def mavenBuild(Map map){
+    sh "mvn ${map.builder.maven.goal}"
   }
 }
