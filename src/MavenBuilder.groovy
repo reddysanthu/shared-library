@@ -1,5 +1,5 @@
 class MavenBuilder{
-  def mavenBuild(){
-       println "SUCCESS"
+  def String mavenBuild(){
+       return ("SUCCESS")
   }
 }
