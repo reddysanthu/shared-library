@@ -3,7 +3,7 @@ def call(String filePath, Closure closure) {
     
     println map
 
-    MavenBuilder builder = new MavenBuilder(map)
+    MavenBuilder builder = new MavenBuilder(map_var: map)
     closure.delegate = builder
     closure.resolveStrategy = Closure.DELEGATE_FIRST
     closure()
