@@ -3,4 +3,5 @@ def call(String filePath, Closure closure) {
     println map
     //MavenBuilder builder = new MavenBuilder()
     //closure.delegate = builder
+    closure()
 }
