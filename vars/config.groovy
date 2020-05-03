@@ -5,10 +5,10 @@ def call(String filePath, Closure closure) {
     println map
     
     def var2 = findFiles (glob: filePath)
-    println var2
+    println var2.length
     
     def var3 = findFiles (glob: "roshmi.txt")
-    println var3
+    println var3.length
     
     
     //def var = new File(".").getAbsolutePath()
