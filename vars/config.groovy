@@ -8,7 +8,7 @@ def call(String filePath, Closure closure) {
     def access_status = new File(var + "/" + filePath).exists()
     
     println var
-    println filepath
+    //println filepath
     println access_status
     
     if (access_status){
