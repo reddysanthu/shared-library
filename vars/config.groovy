@@ -4,7 +4,8 @@ def call(String filePath, Closure closure) {
     def map =  readYaml text: request
     println map
     
-    def access_status = new File(filePath).exists()
+    def var = System.getProperty("user.dir") 
+    def access_status = new File(var + "/" + filePath).exists()
     
     if (access_status){
         def map1 = readYaml file: filePath
