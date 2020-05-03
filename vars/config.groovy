@@ -1,4 +1,10 @@
 def call(String filePath, Closure closure) {
+    def request = libraryResource 'globalconfig.yml'
+    println "$request"
+    def map1 =  readYaml text: request
+    println map1
+    
+    
     def map = readYaml file: filePath
     
     println map
@@ -8,3 +14,4 @@ def call(String filePath, Closure closure) {
     closure.resolveStrategy = Closure.DELEGATE_FIRST
     closure()
 }
+
