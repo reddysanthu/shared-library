@@ -4,6 +4,13 @@ def call(String filePath, Closure closure) {
     def map =  readYaml text: request
     println map
     
+    def var2 = findFiles (glob: filePath)
+    println var2
+    
+    def var3 = findFiles (glob: "roshmi.txt")
+    println var3
+    
+    
     //def var = new File(".").getAbsolutePath()
     //def access_status = new File(var + "/" + filePath).exists()
     
