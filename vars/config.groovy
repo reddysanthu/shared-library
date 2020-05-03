@@ -4,11 +4,8 @@ def call(String filePath, Closure closure) {
     def map =  readYaml text: request
     println map
     
-    def var2 = findFiles (glob: filePath)
-    println var2.length
-    
-    def var3 = findFiles (glob: "roshmi.txt")
-    println var3.length
+    def file_exist = findFiles (glob: filePath)
+   // println file_exist.length
     
     
     //def var = new File(".").getAbsolutePath()
@@ -17,11 +14,11 @@ def call(String filePath, Closure closure) {
     //println var
     //println access_status
     
-   // if (access_status){
+    if (file_exist.length == 1){
         def map1 = readYaml file: filePath
         println map1
         map.putAll(map1)
-    //}
+    }
 
     MavenBuilder builder = new MavenBuilder(map_var: map)
     closure.delegate = builder
