@@ -4,16 +4,23 @@ def call(String filePath, Closure closure) {
     def map =  readYaml text: request
     println map
     
-    def file_exist = findFiles (glob: filePath)
-    if (file_exist.length == 1){
-        def map1 = readYaml file: filePath
-        println map1
-        map.putAll(map1)
+    if (!filePath.isempty) {
+            def file_exist = findFiles (glob: filePath)
+            if (file_exist.length == 1) {
+                def map1 = readYaml file: filePath
+                println map1
+                map.putAll(map1)
+            }
     }
+
 
     MavenBuilder builder = new MavenBuilder(map_var: map)
     closure.delegate = builder
     closure.resolveStrategy = Closure.DELEGATE_FIRST
     closure()
+}
+
+def call(Closure closure) {
+    call('', closure)
 }
 
