@@ -4,7 +4,7 @@ def call(String filePath, Closure closure) {
     def map =  readYaml text: request
     println map
     
-    if (!filePath.isempty) {
+    if (!filePath.isEmpty()) {
             def file_exist = findFiles (glob: filePath)
             if (file_exist.length == 1) {
                 def map1 = readYaml file: filePath
