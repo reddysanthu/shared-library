@@ -1,0 +1,37 @@
+#!/usr/bin/env groovy
+
+@Library('jenkins-share-library') _ //master or whatever branch
+
+pipeline{
+	
+      //agent any
+
+      agent {
+                docker {
+                image 'maven'
+                args '-v $HOME/.m2:/root/.m2'
+                }
+            }
+        
+        stages{
+
+              stage('maven build'){
+                  steps{
+			/*config('repo_config.yml') { 
+			     sh "${mavenBuild()}"  
+   			} */
+               	     
+			 config {
+				  sh "${mavenBuild()}"
+			  }
+			}
+                 }	
+                 
+                 stage ('Check logs') {
+                    steps {
+                        filterLogs ('WARNING', 1)
+                    }
+                }
+		
+           }	       	     	         
+}
